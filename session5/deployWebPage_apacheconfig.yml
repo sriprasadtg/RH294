@@ -1,0 +1,102 @@
+---
+- name: Playbook to install httpd,firewalld and Deploy web page
+  hosts: all
+  gather_facts: no
+  vars:  
+    packages:
+      - httpd
+      - firewalld
+    services:
+      - httpd
+      - firewalld
+
+  tasks:
+    - name: Task to install httpd and firewalld
+      ansible.builtin.yum:
+        name: "{{item}}"
+        state: latest
+      loop: "{{packages}}"
+      when: 
+        - inventory_hostname in groups['prod'] #== "servera.lab.example.com"
+        - inventory_hostname == "servera.lab.example.com"
+
+    - name: Task to enable & start services
+      service:
+        name: "{{item}}"
+        state: started
+        enabled: yes
+      loop: "{{services}}"
+      when: 
+        - inventory_hostname in groups['prod']  #==servera.lab.example.com
+        - inventory_hostname == "servera.lab.example.com"
+
+    - name: Stat to chek if vhosts exists
+      stat:
+        path: /var/www/vhosts/servera/
+      register: stat_out
+      when:
+        - inventory_hostname in groups['prod']  #==servera.lab.example.com
+        - inventory_hostname == "servera.lab.example.com"
+
+    - name: Create vhosts-servera dir
+      file:
+        path: /var/www/vhosts/servera/
+        recurse: yes
+        state: directory
+        owner: root
+        group: root
+      when: 
+        #- stat_out.stat.exists == false
+        - inventory_hostname in groups['prod']
+        - inventory_hostname == "servera.lab.example.com"
+        - stat_out.stat.exists == false
+
+    - name: Modify apache config
+      copy:
+        src: apache.conf
+        dest: /etc/httpd/conf.d/apache.conf
+      notify: 
+        - apache_restart
+      when: 
+        - inventory_hostname in groups['prod']
+        - inventory_hostname == "servera.lab.example.com"
+
+    - name: Enable firewall for http
+      ansible.posix.firewalld:
+        service: http
+        state: enabled
+        immediate: yes
+        permanent: yes
+      when:
+        - inventory_hostname in groups['prod']
+        - inventory_hostname == "servera.lab.example.com"
+
+    - name: Create index.html
+      copy:
+        dest: /var/www/vhosts/servera/index.html
+        content: "THis is vhosts index page in {{inventory_hostname}}"
+      when:
+        - inventory_hostname in groups['prod']
+        - inventory_hostname == "servera.lab.example.com"
+        
+
+  handlers:
+    - name: apache_restart
+      service:
+        name: httpd
+        state: restarted
+
+- name: Playbook to verify webpage
+  hosts: prod
+  tasks:
+    - name: VErify webpage
+      uri:
+        url: http://servera.lab.example.com
+        return_content: yes
+        status_code: 200
+      register: uri_out
+
+    - name: Print uri out
+      debug:
+        msg: "{{uri_out.content}}"
+

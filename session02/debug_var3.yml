@@ -1,0 +1,34 @@
+---
+- name: P1-Debug and Print Vars
+  hosts: prod
+#  vars:
+#     - var1: Harry
+#     - var2: Ron
+  vars_files:
+     - vars_file.yml
+
+  tasks:
+     - name: Display vars values
+       ansible.builtin.debug:
+          msg: "Value of var1 is: {{var1}}; Value of var2 is: {{ var2 }}"
+
+     - name: Display value of var1 modified
+       vars:
+          - var1: Hermione
+       debug:
+          msg: "Value of var1 - {{ var1 }}; Value of var2: {{ var2 }}"
+
+- name: P2-Debug and Print Vars
+  hosts: test
+#  vars:
+#     - var1: Malfoy
+#     - var2: Crabbe
+  vars_files:
+     - vars_file.yml
+
+  tasks:
+     - name: Printing var in Play2
+       debug:
+          msg: "Value of var3 is: {{var3}}; Value of var4 is: {{ var4 }}"
+...
+

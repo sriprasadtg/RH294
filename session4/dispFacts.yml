@@ -1,0 +1,26 @@
+---
+- name: Playbook to display facts
+  hosts: web
+  tasks:
+    - name: Task to display facts
+      debug:
+         #var: ansible_facts
+         msg: >
+            Host "{{ansible_facts.fqdn}}" with 
+            Python version "{{ansible_facts.python_version}}" has
+            "{{ansible_facts.processor_count}}" processors and
+            "{{ansible_facts.memtotal_mb}}" MB of Total Mem.
+    - name: Task to disp local fact
+      debug:
+         msg: 'Custom facts: "{{ansible_facts.ansible_local}}"'
+
+    - name: Install httpd
+      dnf:
+         name: "{{ansible_facts.ansible_local.customft.packages.web_package}}"
+         state: latest
+
+    - name: Start & Enable services
+      service:
+         name: "{{ansible_facts.ansible_local.customft.packages.service}}"
+         enabled: "{{ansible_facts.ansible_local.customft.packages.enabled}}"
+         state: "{{ansible_facts.ansible_local.customft.packages.state}}"

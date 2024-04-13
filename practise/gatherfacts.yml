@@ -1,0 +1,14 @@
+---
+- name: Play to pull infor using gather_facts-setup module
+  hosts: prod
+  tasks:
+    - name: Task to gather facts
+      ansible.builtin.setup:
+          filter:
+             - dns
+      register: user_facts_out
+
+    - name: Task to print user facts
+      debug:
+        msg: "{{user_facts_out}}"
+

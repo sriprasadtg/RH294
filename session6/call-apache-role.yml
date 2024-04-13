@@ -1,0 +1,20 @@
+---
+- name: Play to Deploy webpage using roles
+  hosts: web
+  pre_tasks:
+    - name: Prechecks
+      ansible.builtin.debug:
+        msg: "This is a pre task\n"
+
+  roles:
+    - apache
+  
+  tasks:
+    - name: Deploy task
+      debug:
+        msg: Pretasks and Role calling completed.
+
+  post_tasks:
+    - name: Post checks
+      debug:
+        msg: Running post checks.

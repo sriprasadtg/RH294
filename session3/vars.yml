@@ -1,0 +1,11 @@
+---
+- group_list:
+   - group4
+   - group5
+   - group6
+
+- user_details:
+   - {uname: user4 , uid: 5544 , pgroup: group4}
+   - {uname: user5 , uid: 5545 , pgroup: group5}
+   - {uname: user6 , uid: 5546 , pgroup: group6}
+

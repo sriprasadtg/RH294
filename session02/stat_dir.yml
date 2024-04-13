@@ -1,0 +1,24 @@
+--- 
+- name: Playbook for checking/creating dir usnig stat
+  hosts: test
+  gather_facts: no
+  vars:
+    remote_dir: /statdir
+  tasks:
+    - name: Check dir existence
+      ansible.builtin.stat:
+          path: "{{ remote_dir }}"
+      register: stat_out
+
+    - name: Print stat output data
+      ansible.builtin.debug:
+         var: stat_out.stat.exists
+
+    - name: Create dir if not found using stat.exists
+      ansible.builtin.file:
+         path: "{{ remote_dir }}"
+         state: directory
+         owner: root
+         group: root
+      when: stat_out.stat.exists  == false
+         

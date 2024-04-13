@@ -1,0 +1,33 @@
+---
+- name: Playbook to use handler
+  hosts: prod
+  gather_facts: no
+  force_handlers: yes
+  tasks:
+    - name: Restart http
+      service:
+        name: httpd
+        state: restarted
+      #changed_when: no
+      notify:
+        svc_handler
+
+    - name: start mariadb
+      service:
+        name: maariadb
+        state: started
+      notify:
+        maria_handler
+
+    - name: Print dummy
+      debug:
+        msg: dummy printing
+
+  handlers:
+    - name: svc_handler
+      debug:
+        msg: http restarted
+
+    - name: maria_handler
+      debug:
+        msg: "mariadb is started."

@@ -1,0 +1,13 @@
+---
+- name: Play to gather facts
+  hosts: web
+  tasks:
+    - name: Task to gather hardware info
+      ansible.builtin.setup:
+         gather_subset:
+            - hardware
+      register: hardware_out
+
+    - name: Print hardware details
+      debug:
+         var: hardware_out

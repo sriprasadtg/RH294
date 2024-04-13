@@ -1,0 +1,20 @@
+---
+- name: Playbook to Register Output and Display
+  hosts: prod
+  gather_facts: no
+  tasks:
+  - name: Get http svc status with shell module
+    shell: systemctl status httpd
+    register: http_out
+
+  - name: Print output from register
+    ansible.builtin.debug:
+      var: http_out
+
+  - name: Print specific output from register
+    debug:
+       var: http_out.stdout
+          #- http_out.stdout
+          #- http_out.stdout_lines
+...
+      

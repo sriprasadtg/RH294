@@ -1,0 +1,78 @@
+---
+- name: P1 - Playbook to create Group and User
+  hosts: prod
+  tasks:
+    - name: T1-1 -  Create Group
+      ansible.builtin.group:
+         name: middleware
+         state: present
+         gid: 33451
+
+    - name: T1-2 - Create User
+      ansible.builtin.user:
+         name: jboss
+         uid: 220051
+         group: middleware
+         comment: Deployment Team
+
+- name: P2 - Play to Deploy Apache & Firewall
+  hosts: prod
+  gather_facts: no
+  vars:
+     - package_list:
+         - httpd
+         - firewalld
+     - service_list:
+         - httpd
+         - firewalld
+     #apache_svc: httpd
+     #firewall_svc: firewalld
+
+  tasks:
+    - name: Install Apache & Firewall
+      ansible.builtin.yum:
+         name: "{{ package_list }}"
+         state: latest
+
+    - name: Enable & Start Apache Service
+      ansible.builtin.service:
+         name: "{{ item }}"
+         state: started
+         enabled: yes
+      loop: "{{ service_list }}"
+  
+    #- name: Enable Firewall Service
+    #  ansible.builtin.service:     
+    #     name: "{{ firewall_svc }}"  
+    #     enabled: yes      
+#
+    #- name: Start Apache Service
+    #  service:
+    #     name: "{{ apache_svc }}"
+    #     state: started
+
+    #- name: Start Firewall Service
+    #  service:         
+    #     name: "{{ firewall_svc }}"
+    #     state: started
+   
+    - name: Deploy Web Page
+      copy:
+          content: "Installed Web Page using HTTPD \n"
+          dest: /var/www/html/index.html
+
+- name: Play to Add Firewall Rule
+  hosts: prod
+  gather_facts: 0
+  vars:
+    - port_list:
+        - http
+        - https
+  tasks:
+  - name: Task to Add Firewall Rule
+    ansible.posix.firewalld:
+       service: "{{ item }}"
+       permanent: yes
+       immediate: yes
+       state: enabled
+    loop: "{{ port_list }}"

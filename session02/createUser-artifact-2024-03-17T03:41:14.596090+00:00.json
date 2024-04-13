@@ -1,0 +1,423 @@
+{
+    "plays": [
+        {
+            "__play_name": "Playbook to create Group and User",
+            "name": "Playbook to create Group and User",
+            "pattern": "web",
+            "play": "Playbook to create Group and User",
+            "play_pattern": "web",
+            "play_uuid": "aedf2c77-b371-7d4e-f599-000000000009",
+            "playbook": "/home/student/session02/createUser.yml",
+            "playbook_uuid": "a3c886e9-5abc-4efa-8868-b34e25163508",
+            "tasks": [
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "servera.lab.example.com",
+                    "__number": 0,
+                    "__result": "Ok",
+                    "__task": "Create group",
+                    "__task_action": "ansible.builtin.group",
+                    "duration": 0.837499,
+                    "end": "2024-03-17T03:41:13.585826",
+                    "event_loop": null,
+                    "host": "servera.lab.example.com",
+                    "play": "Playbook to create Group and User",
+                    "play_pattern": "web",
+                    "play_uuid": "aedf2c77-b371-7d4e-f599-000000000009",
+                    "playbook": "/home/student/session02/createUser.yml",
+                    "playbook_uuid": "a3c886e9-5abc-4efa-8868-b34e25163508",
+                    "remote_addr": "servera.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "discovered_interpreter_python": "/usr/bin/python3"
+                        },
+                        "changed": false,
+                        "gid": 12346,
+                        "invocation": {
+                            "module_args": {
+                                "gid": null,
+                                "local": false,
+                                "name": "unixadm",
+                                "non_unique": false,
+                                "state": "present",
+                                "system": false
+                            }
+                        },
+                        "name": "unixadm",
+                        "state": "present",
+                        "system": false
+                    },
+                    "resolved_action": "ansible.builtin.group",
+                    "start": "2024-03-17T03:41:12.748327",
+                    "task": "Create group",
+                    "task_action": "ansible.builtin.group",
+                    "task_args": "",
+                    "task_path": "/home/student/session02/createUser.yml:6",
+                    "task_uuid": "aedf2c77-b371-7d4e-f599-00000000000b",
+                    "uuid": "4a2fd235-cc18-4026-9454-8be21d53bd35"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "serverb.lab.example.com",
+                    "__number": 1,
+                    "__result": "Ok",
+                    "__task": "Create group",
+                    "__task_action": "ansible.builtin.group",
+                    "duration": 0.849385,
+                    "end": "2024-03-17T03:41:13.610030",
+                    "event_loop": null,
+                    "host": "serverb.lab.example.com",
+                    "play": "Playbook to create Group and User",
+                    "play_pattern": "web",
+                    "play_uuid": "aedf2c77-b371-7d4e-f599-000000000009",
+                    "playbook": "/home/student/session02/createUser.yml",
+                    "playbook_uuid": "a3c886e9-5abc-4efa-8868-b34e25163508",
+                    "remote_addr": "serverb.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "discovered_interpreter_python": "/usr/bin/python3"
+                        },
+                        "changed": false,
+                        "gid": 12346,
+                        "invocation": {
+                            "module_args": {
+                                "gid": null,
+                                "local": false,
+                                "name": "unixadm",
+                                "non_unique": false,
+                                "state": "present",
+                                "system": false
+                            }
+                        },
+                        "name": "unixadm",
+                        "state": "present",
+                        "system": false
+                    },
+                    "resolved_action": "ansible.builtin.group",
+                    "start": "2024-03-17T03:41:12.760645",
+                    "task": "Create group",
+                    "task_action": "ansible.builtin.group",
+                    "task_args": "",
+                    "task_path": "/home/student/session02/createUser.yml:6",
+                    "task_uuid": "aedf2c77-b371-7d4e-f599-00000000000b",
+                    "uuid": "4fb0ff3e-7b62-483f-8699-ce9a75c7756c"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "1s",
+                    "__host": "servera.lab.example.com",
+                    "__number": 2,
+                    "__result": "Ok",
+                    "__task": "Create user",
+                    "__task_action": "ansible.builtin.user",
+                    "duration": 0.659703,
+                    "end": "2024-03-17T03:41:14.278669",
+                    "event_loop": null,
+                    "host": "servera.lab.example.com",
+                    "play": "Playbook to create Group and User",
+                    "play_pattern": "web",
+                    "play_uuid": "aedf2c77-b371-7d4e-f599-000000000009",
+                    "playbook": "/home/student/session02/createUser.yml",
+                    "playbook_uuid": "a3c886e9-5abc-4efa-8868-b34e25163508",
+                    "remote_addr": "servera.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "append": false,
+                        "changed": true,
+                        "comment": "Unix user",
+                        "group": 12347,
+                        "groups": "unixadm",
+                        "home": "/home/joe",
+                        "invocation": {
+                            "module_args": {
+                                "append": false,
+                                "authorization": null,
+                                "comment": "Unix user",
+                                "create_home": true,
+                                "expires": null,
+                                "force": false,
+                                "generate_ssh_key": null,
+                                "group": null,
+                                "groups": [
+                                    "unixadm"
+                                ],
+                                "hidden": null,
+                                "home": null,
+                                "local": null,
+                                "login_class": null,
+                                "move_home": false,
+                                "name": "joe",
+                                "non_unique": false,
+                                "password": null,
+                                "password_expire_max": null,
+                                "password_expire_min": null,
+                                "password_lock": null,
+                                "profile": null,
+                                "remove": false,
+                                "role": null,
+                                "seuser": null,
+                                "shell": null,
+                                "skeleton": null,
+                                "ssh_key_bits": 0,
+                                "ssh_key_comment": "ansible-generated on servera.lab.example.com",
+                                "ssh_key_file": null,
+                                "ssh_key_passphrase": null,
+                                "ssh_key_type": "rsa",
+                                "state": "present",
+                                "system": false,
+                                "uid": null,
+                                "umask": null,
+                                "update_password": "always"
+                            }
+                        },
+                        "move_home": false,
+                        "name": "joe",
+                        "shell": "/bin/bash",
+                        "state": "present",
+                        "uid": 12346
+                    },
+                    "resolved_action": "ansible.builtin.user",
+                    "start": "2024-03-17T03:41:13.618966",
+                    "task": "Create user",
+                    "task_action": "ansible.builtin.user",
+                    "task_args": "",
+                    "task_path": "/home/student/session02/createUser.yml:10",
+                    "task_uuid": "aedf2c77-b371-7d4e-f599-00000000000c",
+                    "uuid": "007cd367-9dc6-4749-9960-00d40702772b"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "1s",
+                    "__host": "serverb.lab.example.com",
+                    "__number": 3,
+                    "__result": "Ok",
+                    "__task": "Create user",
+                    "__task_action": "ansible.builtin.user",
+                    "duration": 0.657742,
+                    "end": "2024-03-17T03:41:14.290147",
+                    "event_loop": null,
+                    "host": "serverb.lab.example.com",
+                    "play": "Playbook to create Group and User",
+                    "play_pattern": "web",
+                    "play_uuid": "aedf2c77-b371-7d4e-f599-000000000009",
+                    "playbook": "/home/student/session02/createUser.yml",
+                    "playbook_uuid": "a3c886e9-5abc-4efa-8868-b34e25163508",
+                    "remote_addr": "serverb.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "append": false,
+                        "changed": true,
+                        "comment": "Unix user",
+                        "group": 12347,
+                        "groups": "unixadm",
+                        "home": "/home/joe",
+                        "invocation": {
+                            "module_args": {
+                                "append": false,
+                                "authorization": null,
+                                "comment": "Unix user",
+                                "create_home": true,
+                                "expires": null,
+                                "force": false,
+                                "generate_ssh_key": null,
+                                "group": null,
+                                "groups": [
+                                    "unixadm"
+                                ],
+                                "hidden": null,
+                                "home": null,
+                                "local": null,
+                                "login_class": null,
+                                "move_home": false,
+                                "name": "joe",
+                                "non_unique": false,
+                                "password": null,
+                                "password_expire_max": null,
+                                "password_expire_min": null,
+                                "password_lock": null,
+                                "profile": null,
+                                "remove": false,
+                                "role": null,
+                                "seuser": null,
+                                "shell": null,
+                                "skeleton": null,
+                                "ssh_key_bits": 0,
+                                "ssh_key_comment": "ansible-generated on serverb.lab.example.com",
+                                "ssh_key_file": null,
+                                "ssh_key_passphrase": null,
+                                "ssh_key_type": "rsa",
+                                "state": "present",
+                                "system": false,
+                                "uid": null,
+                                "umask": null,
+                                "update_password": "always"
+                            }
+                        },
+                        "move_home": false,
+                        "name": "joe",
+                        "shell": "/bin/bash",
+                        "state": "present",
+                        "uid": 12346
+                    },
+                    "resolved_action": "ansible.builtin.user",
+                    "start": "2024-03-17T03:41:13.632405",
+                    "task": "Create user",
+                    "task_action": "ansible.builtin.user",
+                    "task_args": "",
+                    "task_path": "/home/student/session02/createUser.yml:10",
+                    "task_uuid": "aedf2c77-b371-7d4e-f599-00000000000c",
+                    "uuid": "97245dd2-a7e5-4467-b72a-4a7acb96bc18"
+                }
+            ],
+            "uuid": "aedf2c77-b371-7d4e-f599-000000000009"
+        }
+    ],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/student/session02/inventory"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/student/session02/createUser.yml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/student/session02"
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/student/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "vi +{line_number} {filename}",
+                "console": true
+            },
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "podman",
+                "enabled": true,
+                "image": "utility.lab.example.com/ee-supported-rhel8:latest",
+                "pull": {
+                    "policy": "missing"
+                }
+            },
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/student/session02/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "stdout",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "{playbook_dir}/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Not set",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Ansible configuration file",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Command line",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Automatically determined",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Defaults",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Settings file",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Settings file",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Defaults",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Command line",
+        "ansible-navigator.playbook-artifact.enable": "Settings file",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Defaults",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "/home/student/session02/ansible-navigator.yml",
+        "settings_file_source": "Search path"
+    },
+    "status": "successful",
+    "status_color": 10,
+    "stdout": [
+        "",
+        "PLAY [Playbook to create Group and User] ***************************************",
+        "",
+        "TASK [Create group] ************************************************************",
+        "\u001b[0;32mok: [servera.lab.example.com]\u001b[0m",
+        "\u001b[0;32mok: [serverb.lab.example.com]\u001b[0m",
+        "",
+        "TASK [Create user] *************************************************************",
+        "\u001b[0;33mchanged: [servera.lab.example.com]\u001b[0m",
+        "\u001b[0;33mchanged: [serverb.lab.example.com]\u001b[0m",
+        "",
+        "PLAY RECAP *********************************************************************",
+        "\u001b[0;33mservera.lab.example.com\u001b[0m    : \u001b[0;32mok=2   \u001b[0m \u001b[0;33mchanged=1   \u001b[0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;33mserverb.lab.example.com\u001b[0m    : \u001b[0;32mok=2   \u001b[0m \u001b[0;33mchanged=1   \u001b[0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   "
+    ],
+    "version": "2.0.0"
+}

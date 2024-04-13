@@ -1,0 +1,26 @@
+--- 
+- name: Playbook to create Group & User Using Loop
+  hosts: prod
+  vars:
+     - group_list:
+         - group1
+         - group2
+         - group3
+     - user_details:
+         - {uname: user1 , uid: 5541 , pgroup: group1}
+         - {uname: user2 , uid: 5542 , pgroup: group2}
+         - {uname: user3 , uid: 5543 , pgroup: group3}
+  tasks:
+    - name: Task to create Groups using Loop
+      group:
+         name: "{{ item }}"
+         state: present
+      loop: "{{ group_list }}"
+
+    - name: Task to create users using Loop
+      user:
+          name: "{{ item.uname }}"
+          state: present
+          uid: "{{ item.uid }}"
+          group: "{{ item.pgroup }}"
+      loop: "{{ user_details }}"

@@ -1,0 +1,8 @@
+---
+- name: Playbook to test ping
+  hosts: prod
+  gather_facts: no
+  tasks:
+     - name: Ping task
+       ansible.builtin.ping:
+...

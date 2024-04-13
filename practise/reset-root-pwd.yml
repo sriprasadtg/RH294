@@ -1,0 +1,10 @@
+---
+- name: PLaybook to reset root password
+  hosts: prod
+  vars_files:
+    - myvault
+  tasks:
+    - name: Task to reset root password
+      user:
+        name: root
+        password: "{{root_pass | password_hash ('sha512')}}"

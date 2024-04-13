@@ -1,0 +1,44 @@
+---
+- name: Deploy apache
+  hosts: prod
+  vars_files:
+     - vars_file.yml
+  tasks:
+     - name: Install required packages
+       ansible.builtin.dnf:
+          name: "{{ package_list }}"
+          state: present
+
+     - name: Start and Enable Apache Service
+       ansible.builtin.service:
+          name: "{{ apache_service }}"
+          state: started
+          enabled: yes
+
+     - name: Start ane Enable Firewall Service
+       ansible.builtin.service:
+          name: "{{ firewalld_service }}"
+          state: started
+          enabled: yes
+
+     - name: Enable Firewall - http
+       ansible.posix.firewalld:
+           immediate: yes
+           permanent: yes
+           service: "{{ firewall_rule }}"          ## ADDING HTTP PORT IN FIREWALL
+           state: enabled
+
+     -  name: Deploy index.html
+        ansible.builtin.copy:
+           content: "This is web server {{ inventory_hostname }}\n"
+           dest: /var/www/html/index.html
+
+- name: Play to verify
+  hosts: localhost
+  tasks:
+     - name: URI Verification
+       ansible.builtin.uri:
+          url: http://servera.lab.example.com
+          return_content: yes
+          status_code: 200
+...

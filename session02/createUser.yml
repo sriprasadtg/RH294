@@ -1,0 +1,17 @@
+---
+- name: Playbook to create Group and User
+  gather_facts: no
+  hosts: web
+  tasks:
+     - name: Create group
+       ansible.builtin.group:
+          name: unixadm
+          state: present
+     - name: Create user
+       ansible.builtin.user:
+          name: joe
+          state: present
+          groups: unixadm
+          comment: "Unix user"
+...
+

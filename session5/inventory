@@ -1,0 +1,11 @@
+[all]
+server[a:d].lab.example.com
+
+[prod]
+server[a:b].lab.example.com
+
+[web]
+serverc.lab.example.com
+
+[test]
+serverd.lab.example.com

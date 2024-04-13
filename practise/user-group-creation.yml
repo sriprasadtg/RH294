@@ -1,0 +1,17 @@
+---
+- name: Playbook to create Group & User
+  hosts: web
+  gather_facts: no
+  tasks:
+    - name: Task - Group Creation
+      ansible.builtin.group:
+        name: admgroup
+        state: present
+        gid: 98765
+
+    - name: Task - User Creation
+      ansible.builtin.user:
+        name: admuser
+        state: present
+        uid: 87654
+        groups: admgroup

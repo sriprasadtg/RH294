@@ -1,0 +1,26 @@
+---
+- name: Playbook to create Directory & File
+  hosts: web
+  gather_facts: no
+
+  tasks:
+    - name: Create Directory
+      file:
+         path: /var/www/html/myWeb
+         state: directory
+         recurse: yes
+         mode: '0755'
+         owner: root
+         group: root
+
+    - name: Create file
+      file:
+         path: /var/www/html/myWeb/myPage
+         state: touch 
+         #recurse: yes
+         mode: '0644'
+         
+    - name: Write data to myPage
+      copy:
+         content: "Welcome to Ansible Automation Playform"
+         dest: /var/www/html/myWeb/myPage

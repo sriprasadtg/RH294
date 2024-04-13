@@ -1,0 +1,45 @@
+---
+# tasks file for apache2
+#
+- name: Install apache
+  dnf:
+    name: "{{apache_pkg}}"
+    state: latest
+
+- name: Start & Enable apache service
+  service:
+    name: "{{apache_svc}}"
+    state: started
+    enabled: yes
+
+- name: Verify DOcumentRoot
+  stat:
+    path: "{{docroot}}"
+  register: docroot_out
+
+  
+- name: Create "{{docroot}}" dir if not present
+  file:
+    path: "{{docroot}}"
+    state: directory
+    recurse: yes
+  when: docroot_out.stat.exists==false
+
+- name: Assigning Jinja Template
+  ansible.builtin.template:
+    src: apachecfg.j2
+    dest: /etc/httpd/conf.d/apache.conf 
+  notify:
+    restart_apache
+
+#- name: Create "{{docroot}}" dir if not present
+#  file:
+#    path: "{{docroot}}"
+#    state: directory
+#    recurse: yes
+#  when: docroot_out.stat.exists==false
+  
+- name: Create index html page
+  copy:
+    content: "This is the HOME PAGE of {{docroot}} in {{ansible_hostname}}"
+    dest: "{{docroot}}/index.html"

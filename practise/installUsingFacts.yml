@@ -1,0 +1,32 @@
+---
+- name: Playbook to install http using custom facts
+  hosts: prod
+  vars:
+    - remote_dir: /etc/ansible/facts.d
+    - remote_file: customfacts.fact
+
+  tasks:
+    - name: Check if facts.d dir exists
+      stat:
+        path: "{{remote_dir}}"
+      register: stat_out
+
+    - name: Display stat out
+      debug:
+        msg: "{{stat_out.stat.exists}}"
+
+    - name: Copy custom fact file
+      copy:
+        src: "{{remote_file}}"
+        dest: "{{remote_dir}}"
+
+    - name: Install httpdpkg
+      ansible.builtin.dnf:
+        name: "{{ansible_facts.ansible_local.customfacts.packages.web_pkg}}"
+        state: latest
+
+    - name: Start httpdsvc
+      service:
+        name: "{{ansible_facts.ansible_local.customfacts.services.name}}"
+        state: "{{ansible_facts.ansible_local.customfacts.services.state}}"
+        enabled: "{{ansible_facts.ansible_local.customfacts.services.enabled}}"

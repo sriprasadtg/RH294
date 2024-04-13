@@ -1,0 +1,7 @@
+---
+- name: Playbook to use custom facts 
+  hosts: prod
+  tasks:
+    - name: Task to pull custom fact
+      debug:
+        msg: Package is "{{ansible_facts.ansible_local.customft.packages.db_package}}"

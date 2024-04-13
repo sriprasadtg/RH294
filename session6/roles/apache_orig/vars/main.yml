@@ -1,0 +1,7 @@
+---
+# vars file for apache
+pkg_name:
+    - httpd
+
+svc_name:
+    - httpd

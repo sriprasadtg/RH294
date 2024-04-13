@@ -1,0 +1,42 @@
+---
+- name: Playbook to install MariaDB when Distro is RedHat
+  hosts: web
+  force_handlers: yes
+  vars:
+     mariadb_pkgs:
+       - mariadb-server
+       - python3-PyMySQL
+  tasks:
+    - name: Task to install MariaDB
+      dnf:
+         name: "{{item}}"
+         state: present
+      loop: "{{mariadb_pkgs}}"
+      when: 
+        - ansible_facts.distribution == "RedHat"
+        - ansible_facts.distribution_major_version == "9"
+
+    - name: Some change 
+      debug:
+        msg: "Some config change"
+      changed_when: true
+      notify:
+         - chg_handler
+
+
+    - name: Task to start MariaDB Service
+      service:
+         name: mariadb
+         state: started
+         enabled: yes
+      failed_when: yes
+      notify:
+         - svc_handler
+
+  handlers:
+    - name: svc_handler
+      debug:
+        msg: "service restarted."
+    - name: chg_handler
+      debug:
+        msg: "change handler"

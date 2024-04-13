@@ -1,0 +1,21 @@
+                                "mtu": 65536,
+                                "promisc": false, 
+                                "timestamping": [],
+                                "type": "loopback"
+                            },           
+                            "ansible_local": {  
+                                "customft": {
+                                    "packages": { 
+                                        "db_package": "mariadb-server",
+                                        "enabled": "yes",
+                                        "service": "httpd",
+                                        "state": "started",
+                                        "web_package": "httpd"
+                                    },   
+                                    "users": {  
+                                        "user1": "joe",
+                                        "user2": "jane"
+                                    }    
+                                }        
+                            },           
+

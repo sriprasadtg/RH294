@@ -1,0 +1,23 @@
+---
+# tasks file for firewall
+- name: Install firewalld pkg
+  dnf:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ firewall_pkg }}"
+
+- name: Start  & Enable firewall svc
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  loop: "{{ firewall_svc }}"
+
+- name: Add port to firewall
+  ansible.posix.firewalld:
+    service: "{{item}}"
+    immediate: yes
+    permanent: yes
+    state: enabled
+  loop: "{{port_list}}"
+

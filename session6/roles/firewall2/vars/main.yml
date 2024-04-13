@@ -1,0 +1,6 @@
+---
+# vars file for firewall2
+#
+firewall_pkg: firewalld
+firewall_svc: firewalld
+apache_port: http

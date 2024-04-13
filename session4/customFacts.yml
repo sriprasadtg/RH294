@@ -1,0 +1,36 @@
+--- 
+- name: Install Custom Facts
+  hosts: web
+  vars:
+     remote_dir: /etc/ansible/facts.d
+     remote_file: customft.fact
+
+  tasks:
+    - name: "Check if {{ remote_dir }} exists"
+      stat:
+         path: "{{ remote_dir }}"
+      register: fdir_out
+
+    - name: Print fact-output of remote-dir
+      debug:
+         var: fdir_out
+
+    - name: Task to create remote-custom dir
+      file:
+         path: "{{remote_dir}}"
+         state: directory
+         owner: root
+         group: root
+         mode: '0755'
+      when: fdir_out.stat.exists==false
+
+    - name: Task to create custom-file
+      ansible.builtin.copy:
+         src: "{{ remote_file }}"
+         dest: "{{ remote_dir }}"
+
+    - name: Print custom fact
+      debug:
+         msg: >
+          User1 is: "{{ansible_facts.ansible_local.customft.users.user1}}"
+

@@ -1,0 +1,9 @@
+---
+# vars file for firewall
+firewall_pkg: 
+  - firewalld
+firewall_svc: 
+  - firewalld
+port_list:
+  - http
+  - https

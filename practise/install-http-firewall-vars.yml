@@ -1,0 +1,36 @@
+---
+- name: Play to install httpd and firewalld with vars
+  hosts: web
+  gather_facts: no
+  vars:
+    packages:
+      - httpd
+      - firewalld
+    services:
+      - httpd
+      - firewalld
+  tasks:
+    - name: Install httpd and firewall packages
+      dnf:
+        name: "{{item}}"
+        state: latest 
+      loop: "{{packages}}"
+    
+    - name: Start and Enable services
+      service:
+        name: "{{item}}"
+        state: started
+        enabled: yes
+      loop: "{{services}}"
+      
+    - name: Enable firewall for http
+      ansible.posix.firewalld:
+        service: http
+        immediate: yes
+        permanent: yes
+        state: enabled
+
+    - name: Create web page
+      copy:
+        content: "This is from web server {{inventory_hostname}}\n"
+        dest: /var/www/html/index.html

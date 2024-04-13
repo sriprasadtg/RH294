@@ -1,0 +1,30 @@
+---
+- name: Playbook to use vars from list of dictionary
+  hosts: prod
+  gather_facts: no
+  vars:
+    house: 
+      - gryffindor
+      - hufflepuff
+      - ravenclaw
+      - slytherin
+    stud:
+      - {name: harry , id: 29991 , house: gryffindor}
+      - {name: cedric , id: 29992 , house: hufflepuff}
+      - {name: luna , id: 29993 , house: ravenclaw}
+      - {name: draco , id: 29994 , house: slytherin}
+    
+  tasks:
+    - name: Create group
+      group:
+        name: "{{item}}"
+        state: present
+      loop: "{{house}}"
+      
+    - name: Create user
+      user:
+        name: "{{item.name}}"
+        state: present
+        uid: "{{item.id}}"
+        group: "{{item.house}}"
+      loop: "{{stud}}"

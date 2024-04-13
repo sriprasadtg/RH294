@@ -1,0 +1,6 @@
+---
+- src: http://serverc.lab.example.com/roles/apache.tar.gz
+  name: apache
+
+- src: http://serverc.lab.example.com/roles/firewall.tar.gz
+  name: firewall

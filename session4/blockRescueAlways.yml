@@ -1,0 +1,21 @@
+---
+- name: Play to demo block-rescue-always
+  hosts: web
+  tasks:
+    - name: Task to define block
+      block:
+        - name: Install httpd-block
+          dnf:
+            name: httpdd
+            state: latest
+          register: http_out
+          #ignore_errors: yes
+
+        - name: Print http out
+          debug:
+            var: http_out
+      rescue:
+        - name: install httpd-rescue
+          dnf: 
+            name: httpd
+            state: latest

@@ -1,0 +1,27 @@
+---
+- name: Play to practise block-rescue-always
+  hosts: web
+  gather_facts: no
+  tasks:
+    - name: Task to try block-rescue-always
+      block:
+        - name: Block Install
+          dnf:
+            name: httppd
+            state: latest
+
+      rescue:
+        - name: Rescue Install
+          dnf:
+            name: httpd
+            state: latest
+
+      always:
+        - name: http status
+          shell:
+            cmd: systemctl status httpd
+          register: http_out
+
+        - name: Print http out
+          debug:
+            var: http_out

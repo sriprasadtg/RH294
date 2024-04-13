@@ -1,0 +1,26 @@
+---
+# tasks file for firewall2
+#
+- name: Install firewall
+  dnf:
+    name: "{{firewall_pkg}}"
+    state: latest
+
+- name: Start & Enable firewall service
+  service:
+    name: "{{firewall_svc}}"
+    state: started
+    enabled: yes
+
+- name: Open firewall port for http
+  ansible.posix.firewalld:
+    service: "{{apache_port}}"
+    immediate: yes
+    state: enabled
+    permanent: yes
+
+#- name: Assigning Jinja Template
+#  ansible.builtin.template:
+#    src: /home/student/session6/roles/apache2/templates/apachecfg.j2
+#    dest: "{{docroot}}/index.html" 
+

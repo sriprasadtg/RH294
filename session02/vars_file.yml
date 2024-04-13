@@ -1,0 +1,10 @@
+    - package_list:
+        - httpd
+        - firewalld
+    - apache_service: httpd
+    - firewalld_service: firewalld
+    - firewall_rule: http
+    - var1: Harry
+    - var2: Ron
+    - var3: Malfoy
+    - var4: Crabbe

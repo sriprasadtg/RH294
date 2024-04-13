@@ -1,0 +1,6 @@
+---
+# vars file for apache2
+#
+apache_pkg: httpd
+apache_svc: httpd
+docroot: /opt/apache

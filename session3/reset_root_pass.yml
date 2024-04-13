@@ -1,0 +1,11 @@
+---
+- name: Play to reset root password using vault
+  hosts: prod
+  vars_files:
+    - var_pass.yml
+  tasks:
+    - name: Task to reset root password
+      ansible.builtin.user:
+         name: root
+         password: "{{ root_pass | password_hash('sha512') }}"
+         

@@ -1,0 +1,6 @@
+[packages]
+web_pkg: httpd
+[services]
+enabled: yes
+state: started
+name: httpd

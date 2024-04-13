@@ -1,0 +1,51 @@
+---
+- name: Playbook to install httpd,firewalld and Deploy web page
+  hosts: prod
+  gather_facts: no
+  vars_files:
+    vars.yml
+  tasks:
+    - name: Task to install httpd and firewalld
+      ansible.builtin.yum:
+        name: "{{item}}"
+        state: latest
+      loop: "{{packages}}"
+
+    - name: Task to enable & start services
+      service:
+        name: "{{item}}"
+        state: started
+        enabled: yes
+      loop: "{{services}}"
+
+    - name: Enable firewall for http
+      firewalld:
+        service: http
+        state: enabled
+        immediate: yes
+        permanent: yes
+
+    - name: Create web page 
+      copy:
+        content: "Practising with var file for host {{inventory_hostname}}\n"
+        dest: /var/www/html/index.html
+
+    - name: curl host
+      shell:
+        cmd: curl "{{inventory_hostname}}"
+      register: curl_out
+
+    - name: Print curl output
+      debug:
+        msg: "{{curl_out.stdout}}"
+
+    - name: Verify web page
+      ansible.builtin.uri:
+        url:  "http://{{inventory_hostname}}"
+        return_content: yes
+        status_code: 200
+      register: uri_out
+
+    - name: Print uri out
+      debug:
+        var: "{{uri_out.content}}"

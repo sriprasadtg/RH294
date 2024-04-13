@@ -1,0 +1,202 @@
+{
+    "plays": [
+        {
+            "__play_name": "Playbook to create User and Group",
+            "name": "Playbook to create User and Group",
+            "pattern": "prod",
+            "play": "Playbook to create User and Group",
+            "play_pattern": "prod",
+            "play_uuid": "9e8d48d9-0e17-7112-1f1f-000000000009",
+            "playbook": "/home/student/session3/createUserGroup.yml",
+            "playbook_uuid": "4da7d9d4-73e1-4746-a5e7-fee1cf6ec326",
+            "tasks": [
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "serverc.lab.example.com",
+                    "__number": 0,
+                    "__result": "Failed",
+                    "__task": "Task to create group",
+                    "__task_action": "ansible.builtin.group",
+                    "duration": 0.903927,
+                    "end": "2024-03-23T06:24:46.396433",
+                    "event_loop": null,
+                    "host": "serverc.lab.example.com",
+                    "ignore_errors": null,
+                    "play": "Playbook to create User and Group",
+                    "play_pattern": "prod",
+                    "play_uuid": "9e8d48d9-0e17-7112-1f1f-000000000009",
+                    "playbook": "/home/student/session3/createUserGroup.yml",
+                    "playbook_uuid": "4da7d9d4-73e1-4746-a5e7-fee1cf6ec326",
+                    "remote_addr": "serverc.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "discovered_interpreter_python": "/usr/bin/python3"
+                        },
+                        "changed": false,
+                        "invocation": {
+                            "module_args": {
+                                "gid": 33441,
+                                "local": false,
+                                "name": "uinxadm",
+                                "non_unique": false,
+                                "state": "present",
+                                "system": false
+                            }
+                        },
+                        "msg": "groupadd: Permission denied.\ngroupadd: cannot lock /etc/group; try again later.\n",
+                        "name": "uinxadm"
+                    },
+                    "resolved_action": "ansible.builtin.group",
+                    "start": "2024-03-23T06:24:45.492506",
+                    "task": "Task to create group",
+                    "task_action": "ansible.builtin.group",
+                    "task_args": "",
+                    "task_path": "/home/student/session3/createUserGroup.yml:7",
+                    "task_uuid": "9e8d48d9-0e17-7112-1f1f-00000000000b",
+                    "uuid": "e1d15cef-6550-457c-875b-e661b02ab5b4"
+                }
+            ],
+            "uuid": "9e8d48d9-0e17-7112-1f1f-000000000009"
+        }
+    ],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/student/session3/inventory"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/student/session3/createUserGroup.yml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/student/session3"
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/student/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "vi +{line_number} {filename}",
+                "console": true
+            },
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "podman",
+                "enabled": true,
+                "image": "utility.lab.example.com/ee-supported-rhel8:latest",
+                "pull": {
+                    "policy": "missing"
+                }
+            },
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/student/session3/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "stdout",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "{playbook_dir}/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Not set",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Ansible configuration file",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Command line",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Automatically determined",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Defaults",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Settings file",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Settings file",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Defaults",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Command line",
+        "ansible-navigator.playbook-artifact.enable": "Settings file",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Defaults",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "/home/student/session3/ansible-navigator.yml",
+        "settings_file_source": "Search path"
+    },
+    "status": "failed",
+    "status_color": 9,
+    "stdout": [
+        "",
+        "PLAY [Playbook to create User and Group] ***************************************",
+        "",
+        "TASK [Task to create group] ****************************************************",
+        "\u001b[0;31mfatal: [serverc.lab.example.com]: FAILED! => {\"ansible_facts\": {\"discovered_interpreter_python\": \"/usr/bin/python3\"}, \"changed\": false, \"msg\": \"groupadd: Permission denied.\\ngroupadd: cannot lock /etc/group; try again later.\\n\", \"name\": \"uinxadm\"}\u001b[0m",
+        "",
+        "PLAY RECAP *********************************************************************",
+        "\u001b[0;31mserverc.lab.example.com\u001b[0m    : ok=0    changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    ignored=0   "
+    ],
+    "version": "2.0.0"
+}

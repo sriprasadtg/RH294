@@ -1,0 +1,11 @@
+---
+- name: Role calling play for apache2
+  hosts: web
+  force_handlers: yes
+  pre_tasks:
+    - name: Pre Task
+      debug:
+        msg: "This is pre task\n."
+
+  roles:
+    - apache2

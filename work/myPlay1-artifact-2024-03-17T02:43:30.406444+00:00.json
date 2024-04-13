@@ -1,0 +1,289 @@
+{
+    "plays": [
+        {
+            "__play_name": "My first Playbook for RH294",
+            "name": "My first Playbook for RH294",
+            "pattern": "prod",
+            "play": "My first Playbook for RH294",
+            "play_pattern": "prod",
+            "play_uuid": "6ed29b2e-a988-8a7a-1ced-000000000009",
+            "playbook": "/home/student/work/myPlay1.yml",
+            "playbook_uuid": "7639dff9-8f92-4d2a-be1d-c7d643aa0e82",
+            "tasks": [
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "servera.lab.example.com",
+                    "__number": 0,
+                    "__result": "Failed",
+                    "__task": "Gathering Facts",
+                    "__task_action": "gather_facts",
+                    "duration": 1.16146,
+                    "end": "2024-03-17T02:43:29.981928",
+                    "event_loop": null,
+                    "host": "servera.lab.example.com",
+                    "ignore_errors": null,
+                    "play": "My first Playbook for RH294",
+                    "play_pattern": "prod",
+                    "play_uuid": "6ed29b2e-a988-8a7a-1ced-000000000009",
+                    "playbook": "/home/student/work/myPlay1.yml",
+                    "playbook_uuid": "7639dff9-8f92-4d2a-be1d-c7d643aa0e82",
+                    "remote_addr": "servera.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "msg": "Missing sudo password"
+                    },
+                    "resolved_action": "ansible.builtin.gather_facts",
+                    "start": "2024-03-17T02:43:28.820468",
+                    "task": "Gathering Facts",
+                    "task_action": "gather_facts",
+                    "task_args": "",
+                    "task_path": "/home/student/work/myPlay1.yml:2",
+                    "task_uuid": "6ed29b2e-a988-8a7a-1ced-000000000010",
+                    "uuid": "545ff553-15fa-48a7-897e-6628bbf2efab"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "serverb.lab.example.com",
+                    "__number": 1,
+                    "__result": "Failed",
+                    "__task": "Gathering Facts",
+                    "__task_action": "gather_facts",
+                    "duration": 1.15942,
+                    "end": "2024-03-17T02:43:29.996761",
+                    "event_loop": null,
+                    "host": "serverb.lab.example.com",
+                    "ignore_errors": null,
+                    "play": "My first Playbook for RH294",
+                    "play_pattern": "prod",
+                    "play_uuid": "6ed29b2e-a988-8a7a-1ced-000000000009",
+                    "playbook": "/home/student/work/myPlay1.yml",
+                    "playbook_uuid": "7639dff9-8f92-4d2a-be1d-c7d643aa0e82",
+                    "remote_addr": "serverb.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "msg": "Missing sudo password"
+                    },
+                    "resolved_action": "ansible.builtin.gather_facts",
+                    "start": "2024-03-17T02:43:28.837341",
+                    "task": "Gathering Facts",
+                    "task_action": "gather_facts",
+                    "task_args": "",
+                    "task_path": "/home/student/work/myPlay1.yml:2",
+                    "task_uuid": "6ed29b2e-a988-8a7a-1ced-000000000010",
+                    "uuid": "0a6cdc84-e52f-4c2e-9e8f-fda9fcaccea6"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "serverc.lab.example.com",
+                    "__number": 2,
+                    "__result": "Failed",
+                    "__task": "Gathering Facts",
+                    "__task_action": "gather_facts",
+                    "duration": 1.141869,
+                    "end": "2024-03-17T02:43:29.998693",
+                    "event_loop": null,
+                    "host": "serverc.lab.example.com",
+                    "ignore_errors": null,
+                    "play": "My first Playbook for RH294",
+                    "play_pattern": "prod",
+                    "play_uuid": "6ed29b2e-a988-8a7a-1ced-000000000009",
+                    "playbook": "/home/student/work/myPlay1.yml",
+                    "playbook_uuid": "7639dff9-8f92-4d2a-be1d-c7d643aa0e82",
+                    "remote_addr": "serverc.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "msg": "Missing sudo password"
+                    },
+                    "resolved_action": "ansible.builtin.gather_facts",
+                    "start": "2024-03-17T02:43:28.856824",
+                    "task": "Gathering Facts",
+                    "task_action": "gather_facts",
+                    "task_args": "",
+                    "task_path": "/home/student/work/myPlay1.yml:2",
+                    "task_uuid": "6ed29b2e-a988-8a7a-1ced-000000000010",
+                    "uuid": "0d1a3b97-4b88-43e3-b777-accc2231f0fe"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "serverd.lab.example.com",
+                    "__number": 3,
+                    "__result": "Failed",
+                    "__task": "Gathering Facts",
+                    "__task_action": "gather_facts",
+                    "duration": 1.128543,
+                    "end": "2024-03-17T02:43:30.003027",
+                    "event_loop": null,
+                    "host": "serverd.lab.example.com",
+                    "ignore_errors": null,
+                    "play": "My first Playbook for RH294",
+                    "play_pattern": "prod",
+                    "play_uuid": "6ed29b2e-a988-8a7a-1ced-000000000009",
+                    "playbook": "/home/student/work/myPlay1.yml",
+                    "playbook_uuid": "7639dff9-8f92-4d2a-be1d-c7d643aa0e82",
+                    "remote_addr": "serverd.lab.example.com",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "msg": "Missing sudo password"
+                    },
+                    "resolved_action": "ansible.builtin.gather_facts",
+                    "start": "2024-03-17T02:43:28.874484",
+                    "task": "Gathering Facts",
+                    "task_action": "gather_facts",
+                    "task_args": "",
+                    "task_path": "/home/student/work/myPlay1.yml:2",
+                    "task_uuid": "6ed29b2e-a988-8a7a-1ced-000000000010",
+                    "uuid": "7e175ca0-9571-4829-9be3-d9acae7e72e9"
+                }
+            ],
+            "uuid": "6ed29b2e-a988-8a7a-1ced-000000000009"
+        }
+    ],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/student/work/inventory"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/student/work/myPlay1.yml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/student/work"
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/student/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "vi +{line_number} {filename}",
+                "console": true
+            },
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "podman",
+                "enabled": true,
+                "image": "utility.lab.example.com/ee-supported-rhel8:latest",
+                "pull": {
+                    "policy": "missing"
+                }
+            },
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/student/work/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "stdout",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "{playbook_dir}/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Not set",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Ansible configuration file",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Command line",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Automatically determined",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Defaults",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Settings file",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Settings file",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Defaults",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Command line",
+        "ansible-navigator.playbook-artifact.enable": "Settings file",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Defaults",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "/home/student/work/ansible-navigator.yml",
+        "settings_file_source": "Search path"
+    },
+    "status": "failed",
+    "status_color": 9,
+    "stdout": [
+        "",
+        "PLAY [My first Playbook for RH294] *********************************************",
+        "",
+        "TASK [Gathering Facts] *********************************************************",
+        "\u001b[0;31mfatal: [servera.lab.example.com]: FAILED! => {\"msg\": \"Missing sudo password\"}\u001b[0m",
+        "\u001b[0;31mfatal: [serverb.lab.example.com]: FAILED! => {\"msg\": \"Missing sudo password\"}\u001b[0m",
+        "\u001b[0;31mfatal: [serverc.lab.example.com]: FAILED! => {\"msg\": \"Missing sudo password\"}\u001b[0m",
+        "\u001b[0;31mfatal: [serverd.lab.example.com]: FAILED! => {\"msg\": \"Missing sudo password\"}\u001b[0m",
+        "",
+        "PLAY RECAP *********************************************************************",
+        "\u001b[0;31mservera.lab.example.com\u001b[0m    : ok=0    changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;31mserverb.lab.example.com\u001b[0m    : ok=0    changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;31mserverc.lab.example.com\u001b[0m    : ok=0    changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;31mserverd.lab.example.com\u001b[0m    : ok=0    changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    ignored=0   "
+    ],
+    "version": "2.0.0"
+}

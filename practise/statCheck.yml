@@ -1,0 +1,22 @@
+---
+- name: Playbook to check & create create dir 
+  hosts: prod
+  gather_facts: no
+
+  tasks:
+    - name: Check if dir exists
+      ansible.builtin.stat:
+        path: /home/student/statcheck
+      register: stat_out
+
+    - name: Print stat out
+      debug:
+        var: stat_out.stat.exists
+
+    - name: Create dir with stat_out.exists
+      file:
+        path: /home/student/statcheck
+        state: directory
+        owner: root
+        group: root
+      when: stat_out.stat.exists==False

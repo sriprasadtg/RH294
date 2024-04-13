@@ -1,0 +1,12 @@
+---
+- name: Play for stat check
+  hosts: web
+  tasks:
+    - name: stat chk task
+      stat:
+        path: /home/student/practise/handler.yml
+      register: stat2_out
+
+    - name: Print stat out
+      debug:
+        msg: "{{stat2_out}}"

@@ -1,0 +1,37 @@
+---
+- name: Playb to demo block-rescue-always
+  hosts: serverc.lab.example.com
+  gather_facts: no
+  tasks:
+      - name: restart httpd svc 
+        block:
+           - name: block - restart httpdd
+             service:
+               name: httppdd
+               state: restart
+             register: httppdd_out
+
+           - name: Print httppdd out
+             debug:
+               var: "{{httppdd_out}}"
+
+        rescue:
+           - name: restart httpd svc - rescue
+             service:
+                name: httpd
+                state: restarted
+             register: httpd_out
+
+           - name: Print httpd_out
+             debug:
+               var: httpd_out
+
+        always:
+            - name: Print httpd status - always
+              shell:
+                 cmd: systemctl status httpd
+              register: always_out
+
+            - name: Print always out
+              debug:
+                var: always_out

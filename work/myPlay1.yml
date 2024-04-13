@@ -1,0 +1,13 @@
+---
+- name: My first Playbook for RH294
+  hosts: prod
+  tasks:
+     - name: Group Creation
+       ansible.builtin.group:
+          name: linadmin
+          state: present
+     - name: User Creation
+       ansible.builtin.user:
+          name: prasad
+          state: present
+          uid: 12345

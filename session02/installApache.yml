@@ -1,0 +1,38 @@
+---
+- name: Playbook to install apache
+  hosts: prod
+  gather_facts: no
+  tasks:
+   - name: Install Apache
+     ansible.builtin.yum:
+        name: httpd
+        state: latest
+        
+   - name: Start Apache Service
+     ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+
+   - name: Install firewall
+     ansible.builtin.yum:
+        name: firewalld
+        state: present
+
+   - name: Start Firewall Service
+     ansible.builtin.service:
+        name: firewalld
+        state: started
+
+   - name: Enable Firewall - http
+     ansible.posix.firewalld:
+        immediate: yes
+        permanent: yes
+        service: http
+        state: enabled
+
+   - name: Deploy index.html
+     ansible.builtin.copy:
+        content: "This is is web server"
+        dest: /var/www/html/index.html
+...        

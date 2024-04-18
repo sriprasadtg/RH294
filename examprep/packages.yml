@@ -1,0 +1,26 @@
+---
+- name: Play book to install php, mariadb, RPM Dev Tools & Patch
+  hosts: all
+  vars:
+    pkg_install:
+      - php
+      - mariadb
+
+  tasks:
+    - name: Install php & mariadb
+      ansible.builtin.dnf:
+        name: "{{ pkg_install }}"
+        state: present
+      when: inventory_hostname in groups['dev'] or inventory_hostname in groups['test'] or inventory_hostname in groups['prod']
+      
+    - name: Install RPM Dev Tools
+      ansible.builtin.yum:
+        name: '@RPM Development tools'
+        state: present
+      when: inventory_hostname in groups['dev']
+
+    - name: Install all pkgs to latest
+      yum:
+        name: "*"
+        state: latest
+      when: inventory_hostname in groups['dev']

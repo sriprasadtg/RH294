@@ -1,0 +1,21 @@
+---
+- name: Playbook to create repo in managed hosts
+  hosts: all
+  tasks:
+    - name: Task to create Base repo
+      ansible.builtin.yum_repository:
+        name: baseos
+        description: Base OS repo
+        #baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+        gpgcheck: yes
+        enabled: yes
+
+    - name: Task to create Appstream repo
+      ansible.builtin.yum_repository:
+        name: appstream
+        description: Appstream repo
+        #baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+        gpgcheck: yes
+        enabled: yes
+
+      

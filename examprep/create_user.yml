@@ -1,0 +1,30 @@
+---
+- name: Playbook to create users with password
+  hosts: all
+  vars_files:
+    - vault.yml
+    - uservars.yml
+
+  tasks:
+    - name: Task to create users in dev
+      user:
+        name: "{{ item }}"
+        groups: devops
+        comment: developer
+        password: "{{ dev_pass | password_hash ('sha512') }}"
+      loop: "{{ dname.dev }}"
+      when: inventory_hostname in groups['dev'] or inventory_hostname in groups['test']
+  
+    - name: Task to create group
+      group:
+        name: opsmgr
+        state: present
+
+    - name: Task to vreate users in prod
+      user:
+        name: gabriel
+        groups: opsmgr
+        password: "{{ mgr_pass | password_hash ('sha512') }}"
+        comment: Manager
+      when: inventory_hostname in groups['prod'] 
+

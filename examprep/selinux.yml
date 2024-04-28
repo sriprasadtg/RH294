@@ -1,0 +1,10 @@
+---
+- name: Play to implement SELinux to Enforcing mode
+  hosts: all
+  tasks:
+    - name: Task to implement SELinux using roles
+      vars:
+        selinux_policy: targeted
+        selinux_state: enforcing
+      include_role:
+        name: redhat.rhel_system_roles.selinux

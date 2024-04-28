@@ -1,0 +1,7 @@
+---
+#- src: https://github.com/cprakash2118/RH294-16-March24/unit-5-6-7/redhat-rhel_system_roles-1.19.3.tar.gz
+#  name: balancer
+
+- src: http://servera.lab.example.com/apache.tar.gz
+  name: phphello
+

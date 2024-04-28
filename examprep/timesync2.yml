@@ -1,0 +1,12 @@
+---
+- name: Playbook to do timesync using roles
+  hosts: all
+  #tasks:
+  #  - name: Task to timesync by including role
+  vars:
+       timesync_ntp_servers:
+         - hostname: 172.25.254.254
+           iburst: yes
+  roles:
+         - redhat.rhel_system_roles.timesync
+

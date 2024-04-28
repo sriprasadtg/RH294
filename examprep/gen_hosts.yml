@@ -1,0 +1,10 @@
+---
+- name: Playbook to create myhosts entry
+  hosts: all
+  tasks:
+    - name: Generate /etc/myhosts file in dev hosts
+      ansible.builtin.template:
+        src: ./hosts.j2
+        dest: /etc/myhosts
+      when: inventory_hostname in groups['dev']
+

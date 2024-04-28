@@ -1,0 +1,17 @@
+---
+- name: Playbook to generate hardware report
+  hosts: all
+  tasks:
+    - block:
+      - name: generate report1
+        template:
+          src: ./hwreport1.j2
+          dest: /root/hwreport.txt
+        register: report1_out
+
+      rescue:
+      - name: generate repor2
+        template:
+          src: ./hwreport2.j2
+          dest: /root/hwreport.txt
+

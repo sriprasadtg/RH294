@@ -1,0 +1,8 @@
+---
+- name: Play to remove apache
+  hosts: serverc.lab.example.com
+  tasks:
+    - name: Remove apache
+      yum:
+        name: httpd
+        state: absent

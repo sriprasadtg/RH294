@@ -1,0 +1,27 @@
+---
+- name: Playbook for WebDev
+  hosts: dev
+  tasks:
+    - name: Create directory /webdev
+      file:
+        path: /webdev
+        group: apache
+        mode: 02775
+        state: directory
+
+    #- name: Create webdev dir in /var/www/html
+    #  file:
+    #    path: /var/www/html/webdev
+    #    state: directory
+
+    - name: Sym link 
+      file:
+        src: /webdev
+        dest: /var/www/html/webdev
+        state: link
+
+    - name: Create index.html
+      copy:
+        dest: /webdev/index.html
+        content: "Development\n"
+        #setype: httpd_sys_content_t

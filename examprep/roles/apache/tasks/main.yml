@@ -1,0 +1,27 @@
+---
+# tasks file for apache
+- name: Install httpd and firewwall
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ install_pkg }}"
+
+- name: Start httpd and firewall services
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  loop: "{{ service_list }}"
+
+- name: Enable firewall
+  ansible.posix.firewalld:
+    service: http
+    state: enabled
+    permanent: yes
+    immediate: yes
+
+- name: Create index.html page
+  ansible.builtin.template:
+    src: /home/student/examprep/roles/apache/templates/index.html.j2
+    dest: /var/www/html/index.html
+

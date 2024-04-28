@@ -1,0 +1,5 @@
+---
+- name: Play to implement apache role
+  hosts: webservers
+  roles:
+    - apache

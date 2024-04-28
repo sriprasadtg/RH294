@@ -1,0 +1,22 @@
+---
+- name: Playbook to edit /etc/issue
+  hosts: all
+  tasks:
+    - name: Task to edit /etc/issue in DEV
+      copy:
+        dest: /etc/issue
+        content: "Development"
+      when: inventory_hostname in groups['dev']
+
+    - name: Task to edit /etc/issue in TEST
+      copy:
+        dest: /etc/issue
+        content: "Test"
+      when: inventory_hostname in groups['test']
+
+    - name: Task to edit /etc/issue in PROD
+      copy:
+        dest: /etc/issue
+        content: "Production"
+      when: inventory_hostname in groups['prod']
+

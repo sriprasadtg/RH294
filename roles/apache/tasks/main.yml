@@ -1,0 +1,27 @@
+---
+# tasks file for apache
+ - name: Task to install package
+   dnf:
+     name: "{{item}}"
+     state: present
+   loop: "{{pkg_list}}"
+
+ - name: Task to start service
+   service:
+     name: "{{item}}"
+     state: started
+     enabled: yes
+   loop: "{{svc_list}}"
+
+ - name: Task to enable fwall for http
+   ansible.posix.firewalld:
+     service: http
+     immediate: yes
+     permanent: yes
+     state: enabled
+   #loop: "{{ fwall_port }}"
+
+ - name: Task to copy index.html
+   template:
+     src: index.html.j2
+     dest: /var/www/html/index.html

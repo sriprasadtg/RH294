@@ -1,0 +1,4 @@
+---
+# defaults file for selinux
+selinux_mode: enforcing
+selinux_type: targeted

@@ -1,0 +1,7 @@
+ansible-navigator:
+  execution-environment:
+    image: xxxxxxxx./ee-rhel8supported:
+    pull:
+      policy: missing
+  playbook-artifact:
+    enable: false

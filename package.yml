@@ -1,0 +1,27 @@
+---
+- name: Play to install pkgs
+  hosts: all
+  vars:
+    pkg_install:
+      - php
+      - mariadb
+
+  tasks:
+    - name: Task to install php and mariadb
+      dnf:
+        name: "{{ item}}"
+        state: present
+      loop: "{{pkg_install}}"
+      when: inventory_hostname in groups['dev'] or inventory_hostname in groups['test'] or inventory_hostname in groups['prod']
+
+    - name: Task to install RPM Dev Tools
+      dnf:
+        name: '@RPM Development Tools'
+        state: present
+      when: inventory_hostname in groups['dev']
+
+    - name: Update all pkgs to latest
+      dnf:
+        name: "*"
+        state: latest
+      when: inventory_hostname in groups['dev']

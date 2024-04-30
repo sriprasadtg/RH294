@@ -1,0 +1,10 @@
+---
+- name: Play for php
+  hosts: webservers
+  roles:
+   - phphello
+
+- name: Play for balancer
+  hosts: balancers
+  roles:
+   - balancer

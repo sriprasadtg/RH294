@@ -1,0 +1,19 @@
+---
+- name: Play to create repos
+  hosts: all
+  tasks:
+   - name: Add Base repository
+     ansible.builtin.yum_repository:
+       name: Base
+       description: Base YUM repo
+       baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+       gpgkey: http://classroom.example.com/content/rhel9/x86_64/dvd/RPM-GPG-KEY-redhat-release
+
+   - name: Add Appstrea, repository
+     ansible.builtin.yum_repository:
+       name: Appstream      
+       description: Appstream YUM repo
+       baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+       gpgkey: http://classroom.example.com/content/rhel9/x86_64/dvd/RPM-GPG-KEY-redhat-release
+
+

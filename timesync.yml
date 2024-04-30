@@ -1,0 +1,15 @@
+---
+- name: Play to timesync
+  hosts: all
+  vars:
+     timesync_ntp_servers:
+      - hostname: 172.25.254.254
+        iburst: yes
+
+  roles:
+    - redhat.rhel_system_roles.timesync
+    #- timesync
+    #- redhat.rhel_system_roles.timesync
+    #- /usr/share/ansible/roles/rhel-system-roles.timesync/
+    #- rhel-system-roles.timesync
+

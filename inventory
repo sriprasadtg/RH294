@@ -1,0 +1,14 @@
+[dev]
+servera.lab.example.com
+
+[test]
+serverb.lab.example.com
+
+[prod]
+server[c:d].lab.example.com
+
+[balancers]
+utility.lab.example.com
+
+[webservers:children]
+prod

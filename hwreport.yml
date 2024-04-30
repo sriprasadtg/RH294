@@ -1,0 +1,16 @@
+---
+- name: Play to gen hardware report
+  hosts: all
+  tasks:
+    - block:
+       - name: Task to gen hw report
+         template:
+           src: hwreport1.j2
+           dest: /root/hwreport.txt
+         register: hwreport_out
+
+      rescue: 
+       - name: Task to gen hw report2 when error
+         template:
+           src: hwreport2.j2                    
+           dest: /root/hwreport.txt   

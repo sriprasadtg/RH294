@@ -1,0 +1,24 @@
+---
+- name: Play for webdev
+  hosts: dev
+
+  tasks:
+    - name: Task to create /webdev dir
+      file:
+        path: /webdev
+        group: apache
+        mode: 02775
+        state:  directory
+
+    - name: Create /webdev/index.html
+      copy:
+        dest: /webdev/index.html  
+        content: Development  
+ #       setype: httpd_sys_content_t
+#
+    - name: Symlink
+      file:
+        src: /webdev
+        dest: /var/www/html/webdev
+        state: link
+

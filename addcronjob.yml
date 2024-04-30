@@ -1,0 +1,13 @@
+---
+- name: PLay to add a cron job
+  hosts: dev
+  tasks:
+   - name: Creates a cron file under /etc/cron.d
+     ansible.builtin.cron:
+       name: cronadd
+       weekday: "*"
+       minute: "*/2"
+       hour: "*"
+       user: student
+       job: /bin/logger "all the best"
+       cron_file: mycronfile

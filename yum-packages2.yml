@@ -1,0 +1,29 @@
+---
+- name: Play for creting yum repo in mgd nodes
+  hosts: all
+  tasks:
+    - name: Creating base repo
+      yum_repository:
+         name: base
+         description: base repo
+         file: external_repos
+         baseurl: http://content.example.com/rhel8.4/x86_64/dvd/BaseOS 
+         gpgcheck: yes
+         enabled: yes
+
+    - name: Creating appstream repo                                        
+      yum_repository:
+         name: Appstream 
+         description: Appstream repo
+         file: external_repos                                         
+         baseurl: http://content.example.com/rhel8.4/x86_64/dvd/AppStream
+         gpgcheck: yes
+         enabled: yes
+
+    - name: Import a key from a url
+      ansible.builtin.rpm_key:
+          state: present
+          key: http://classroom.example.com/content/rhel9/x86_64/dvd/RPM-GPG-KEY-redhat-release
+
+
+

@@ -1,0 +1,11 @@
+---
+- name: Play for selinux
+  hosts: all
+  tasks:
+    - name: Task to implement selinux policy & state
+      vars:
+        selinux_policy: targeted
+        selinux_state: enforcing
+      include_role:
+        name: redhat.rhel_system_roles.selinux
+    #- selinux

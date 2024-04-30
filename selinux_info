@@ -1,0 +1,10 @@
+sudo yum install rhel-system-roles
+ansible-galaxy role install selinux -p roles
+
+
+selinux.yml
+vars:
+ - selinux_policy: targeted
+ - selinux_state:  enforcing
+roles:
+ - selinux

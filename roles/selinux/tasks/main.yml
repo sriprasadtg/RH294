@@ -1,0 +1,16 @@
+---
+# tasks file for selinux
+- name: Setup selinux config file
+  template:
+      src: selinux_config
+      dest: /etc/selinux/config
+      owner: root
+      group: root
+      mode: 0644
+      backup: yes
+  register: selinux_config
+- include_role:
+    name: AgePartnership.reboot
+  vars:
+      reboot_message: "Reboot by Ansible for SELinux Config Update"
+  when: selinux_config.changed

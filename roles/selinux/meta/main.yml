@@ -1,0 +1,13 @@
+galaxy_info:
+  author: William Otterburn
+  description: Role to manage SELinux setup
+  company: AgePartnership
+  license: MIT
+
+  min_ansible_version: 2.4
+  platforms:
+      - name: EL
+        versions:
+            - all
+dependencies:
+    - { role: AgePartnership.reboot, reboot: false }

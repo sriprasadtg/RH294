@@ -1,0 +1,20 @@
+---
+- name: Play for creattttttttting LV
+  hosts: dev
+  tasks:
+    - name: Task to check if VGexists
+      command: vgs research
+      register: vgs_out
+      ignore_errors: yes
+
+
+    - name: Print vgs out
+      debug:
+        var: vgs_out
+
+    #- name: create LV
+    #  lvol:
+    #    vg: research
+    #    lv: data
+    #    size: 1500
+    #    filesystem: xfs

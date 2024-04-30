@@ -1,0 +1,20 @@
+---
+
+- name: Purge legacy ntp clients
+  ansible.builtin.apt:
+    name: ntp
+    state: absent
+    purge: true
+    force: true
+  become: true
+
+- name: Import enable.yml
+  ansible.builtin.import_tasks: enable.yml
+  when: ansible_virtualization_type is not defined or ansible_virtualization_type not in timesync_blacklist
+
+- name: Import disable.yml
+  ansible.builtin.import_tasks: disable.yml
+  when:
+    - timesync_explicit_disable | default(false) | bool
+    - ansible_virtualization_type is defined
+    - ansible_virtualization_type in timesync_blacklist
